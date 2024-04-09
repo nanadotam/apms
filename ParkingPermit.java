@@ -48,4 +48,8 @@ public class ParkingPermit {
     public boolean isValidOn(LocalDate date) {
         return (date.isEqual(validFrom) || date.isAfter(validFrom)) && (date.isBefore(validUntil) || date.isEqual(validUntil));
     }
+
+    system.out.println("Hello, test!")
+    system.out.println("Hello!")
+
 }
