@@ -45,6 +45,10 @@ public class ParkingSpot {
     public void setType(String type){
         this.type = type;
     }
+
+    system.out.println("Lois commit")
+
+
 }    
 
     
