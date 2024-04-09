@@ -34,6 +34,9 @@ public class User {
     public void setRole(String role){
         this.role = role;
     }
+
+    System.out.println("Elsie commit");
+
 }
 
 
