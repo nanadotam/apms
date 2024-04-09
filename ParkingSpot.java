@@ -46,7 +46,6 @@ public class ParkingSpot {
         this.type = type;
     }
 
-    system.out.println("Lois commit")
 
 
 }    
