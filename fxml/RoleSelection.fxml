@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="your.package.RoleSelectionController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+    <Label text="Welcome! Please select your role:">
+        <font>
+            <Font name="Arial" size="16" />
+        </font>
+    </Label>
+    <Button text="Student" onAction="#handleStudentSelection" minWidth="200.0" style="-fx-background-color: #FFC0CB;"/>
+    <Button text="Staff" onAction="#handleStaffSelection" minWidth="200.0" style="-fx-background-color: #ADD8E6;"/>
+    <Button text="Visitor" onAction="#handleVisitorSelection" minWidth="200.0" style="-fx-background-color: #90EE90;"/>
+</VBox>
