@@ -55,6 +55,9 @@ public class ParkingPermit {
             permitId = permitId.replaceAll("[-\\s]+", ""); // This removes all hyphens and spaces
             // Additional code can follow, using the updated permitId
         }
+        if(permitId.startsWith("STU")){
+            return 
+        }
     }
 
 
