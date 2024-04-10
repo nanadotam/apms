@@ -49,14 +49,19 @@ public class ParkingPermit {
         return (date.isEqual(validFrom) || date.isAfter(validFrom)) && (date.isBefore(validUntil) || date.isEqual(validUntil));
     }
 
-    public void checkPermitId(String permitId) {
+    public String formatPermitId(String permitId) {
         if (permitId.contains("-") || permitId.contains(" ")) {
             // Corrected code
             permitId = permitId.replaceAll("[-\\s]+", ""); // This removes all hyphens and spaces
-            // Additional code can follow, using the updated permitId
+            return permitId;
         }
-        if(permitId.startsWith("STU")){
-            return 
+        
+    public boolean checkPermitId(String permitId) {
+        if (permitId.startsWith("STU")){
+            return true;
+        }else{
+            System.out.println("Invalid Students ID");
+            break;
         }
     }
 
