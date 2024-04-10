@@ -22,6 +22,8 @@ public class EventManagement{
 
     }
 
+    System.out.println("hello"); 
+
     public cancelEvent(int eventID)
 
 
