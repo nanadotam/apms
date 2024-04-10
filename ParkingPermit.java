@@ -49,5 +49,9 @@ public class ParkingPermit {
         return (date.isEqual(validFrom) || date.isAfter(validFrom)) && (date.isBefore(validUntil) || date.isEqual(validUntil));
     }
 
+    public checkPermitId(String permitId){
+        if(permitId.contains("-") || permitId.contains(" ")){}
+    }
+
 
 }
