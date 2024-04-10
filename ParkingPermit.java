@@ -49,9 +49,14 @@ public class ParkingPermit {
         return (date.isEqual(validFrom) || date.isAfter(validFrom)) && (date.isBefore(validUntil) || date.isEqual(validUntil));
     }
 
-    public checkPermitId(String permitId){
-        if(permitId.contains("-") || permitId.contains(" ")){}
+    public void checkPermitId(String permitId) {
+        if (permitId.contains("-") || permitId.contains(" ")) {
+            // Corrected code
+            permitId = permitId.replaceAll("[-\\s]+", ""); // This removes all hyphens and spaces
+            // Additional code can follow, using the updated permitId
+        }
     }
+
 
 
 }
