@@ -104,7 +104,8 @@ public class User {
                 switch (choice) {
                     case 1:
                         System.out.println("Book Parking Spot Menu");
-                        System.out.println("_" * 35);
+                        // to be fixed
+                        System.out.println("_".repeat(10));
                         System.out.println("Enter Parking SPot ID:");
                         String spotID = input.nextLine();
                         if (Booking.bookSpot(spotID)) {

@@ -55,10 +55,13 @@ public class Booking {
             parkingForTheDay[i++] = new ParkingSpot(spot, "Multi-Purpose Building", false, "General");
         }
 
+        // @ Elsie
+        // repeat method for all 5 car parks
+
     // bookSpot method
-    public boolean bookSpot (String spotID){
+    public boolean bookSpot (String spotId){
         for (ParkingSpot spot : parkingForTheDay) {
-            if (spot.getspotID().equals(spotID) && !spot.getIsOccupied()) {
+            if (spot.getspotId().equals(spotId) && !spot.getIsOccupied()) {
                 return spot.book();
             }
         }

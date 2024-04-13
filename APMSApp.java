@@ -68,6 +68,7 @@ public class APMSApp {
 }
 }
 
+            // @ Reggie and Lois --- do same for the studrnt, visitor...
             
             // case 2:
             //     System.out.println("Enter your parking permit.");
