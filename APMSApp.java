@@ -29,26 +29,45 @@ public class APMSApp {
         try {
             // this line selects the integer from the options the user enters
             user_choice = Integer.parseInt(scanner.nextLine());
-            // if (user_choice == 4) {
-            //     System.out.println("Thank you for using the Ashesi Parking system.");
-            //     continueLoop = false;
-            //     break; // Exit the loop and end the program
-            // }
 
             switch (user_choice) {
                 case 1:
                     System.out.println("Enter your Staff ID: ");
                     String staffID = scanner.nextLine();
-                    User user = new User(staffID, "staff");
+                    User user = new User(staffID, "staff"); //  create an instance of the User class 
                     if (user.verifyStaffID(staffID)){
                         System.out.println("ID is valid.");
                         // Display menu
                         user.displayMenu(); // changed to handle - own output and operations
                     } else {
                         System.out.println("Invalid ID. Please try again.");
+                    }; 
+
+                case 2:
+                    System.out.println("Enter your Student ID: ");
+                    String studentID = scanner.nextLine();
+                    User user1 = new User(studentID, "student"); //  create an instance of the User class 
+                    if (user1.verifyStaffID(studentID)){
+                        System.out.println("ID is valid.");
+                        // Display menu
+                        user1.displayMenu(); // changed to handle - own output and operations
+                    } else {
+                        System.out.println("Invalid ID. Please try again.");
                     };  
 
                     break;
+                case 3:
+                    System.out.println("Enter your Vi ID: ");
+                    String visitorID = scanner.nextLine();
+                    User user2 = new User(visitorID, "vissitor"); //  create an instance of the User class 
+                    if (user2.verifyStaffID(visitorID)){
+                        System.out.println("ID is valid.");
+                        // Display menu
+                        user2.displayMenu(); // changed to handle - own output and operations
+                    } else {
+                        System.out.println("Invalid ID. Please try again.");
+                    }; 
+    
                 case 4:
                     System.out.println("Thank you for using the Ashesi Parking system.");
                     continueLoop = false; // Change continueLoop to false if user wants to exit

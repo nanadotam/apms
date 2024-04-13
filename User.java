@@ -10,12 +10,11 @@ public class User {
     "STAFF009", "STAFF010", "STAFF011", "STAFF012","STAFF013", "STAFF014", "STAFF015", "STAFF016","STAFF017", "STAFF018", "STAFF019", "STAFF020",
     "STAFF021", "STAFF022", "STAFF023", "STAFF024","STAFF025", "STAFF026", "STAFF027", "STAFF028", "STAFF029", "STAFF030"};
 
-
     private static final String[] STUDENT_IDS = {"STU00012024", "STU00022025", "STU00032026", "STU00042027","STU00052024", "STU00062025", "STU00072026", "STU00082027","STU00092024", "STU00102025", "STU00112026", "STU00122027",
     "STU00132024", "STU00142025", "STU00152026", "STU00162027","STU00172024", "STU00182025", "STU00192026", "STU00202027","STU00212024", "STU00222025", "STU00232026", "STU00242027",
     "STU00252024", "STU00262025", "STU00272026", "STU00282027","STU00292024", "STU00302025" };
 
-
+    private static final String[] VISITOR_IDS = {"VIS001", "VIS002", "VIS003"};
     // Constructor
     public User(String userID, String role) {
         this.userID = userID;
@@ -74,6 +73,19 @@ public class User {
         }
     }
 
+    // Verify Visitor
+    public boolean verifyVistorID(String visitorID) {
+        visitorID = visitorID.toUpperCase();
+        // Check if the ID starts with "STU"
+        if (visitorID.startsWith("VIS")) {
+            // Check if the uppercase ID exists in the array of valid IDs
+            return contains(VISITOR_IDS, visitorID);
+        } else {
+            return false; // Incorrect ID format
+        }
+    }
+    
+
 
     // helper method
     // Boolean we created to check if an array exists in a list 
@@ -106,7 +118,7 @@ public class User {
                         System.out.println("Book Parking Spot Menu");
                         // to be fixed
                         System.out.println("_".repeat(10));
-                        System.out.println("Enter Parking SPot ID:");
+                        System.out.println("Enter Parking Spot ID:");
                         String spotID = input.nextLine();
                         if (Booking.bookSpot(spotID)) {
                             System.out.println("Spot Booked Successfully.");
@@ -118,6 +130,10 @@ public class User {
     
                     case 2:
                         // viewAvailableSpots();
+                        System.out.println("View Available Parking Spots Menu");
+                        System.out.println("_".repeat(10));
+                        
+
                         break;
                     case 3:
                         System.out.println("Cancel..");

@@ -55,6 +55,26 @@ public class Booking {
             parkingForTheDay[i++] = new ParkingSpot(spot, "Multi-Purpose Building", false, "General");
         }
 
+        int i = 0;
+        for (String spot : mainAdministrationCarpark) {
+            parkingForTheDay[i++] = new ParkingSpot(spot, "Administration Building", false, "General");
+        }
+
+        for (String spot : mainStudentsCarpark) {
+            parkingForTheDay[i++] = new ParkingSpot(spot, "Students Carpark", false, "General");
+        }
+
+        for (String spot :upperHostelsCarpark) {
+            parkingForTheDay[i++] = new ParkingSpot(spot, "Upper Hostels Carpark", false, "General");
+        }
+
+        for (String spot : lowerHostelsCarpark) {
+            parkingForTheDay[i++] = new ParkingSpot(spot, "Lower Hostels Carpark", false, "General");
+        }
+
+ 
+                
+
         // @ Elsie
         // repeat method for all 5 car parks
 
@@ -75,6 +95,7 @@ public class Booking {
         return true; // Assuming reservation is always successful for this example
     }
 
+    // display available parking spots
     public static void displayAvailableSpots() {
         System.out.println("Available parking spots:");
         for (String spot : multiPurposeCarpark) {
@@ -86,6 +107,8 @@ public class Booking {
         }
         System.out.println();
     }
+
+
     }
 }
 
