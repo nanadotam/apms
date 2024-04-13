@@ -1,3 +1,8 @@
+// CHANGES NEED TO BE MADE
+// 1. after user enters wrong ID, program shouldnt go to top level menu
+// - instead program needs to ask user for input again and provide a key to go back to top-level menu
+// example: enter 0 to go back to the main menu
+// 2. Do some small error handling and make the program more intuitive
 import java.util.Scanner;
 
 public class APMSApp {
@@ -35,12 +40,12 @@ public class APMSApp {
                     System.out.println("Enter your Staff ID: ");
                     String staffID = scanner.nextLine();
                     User user = new User(staffID, "staff");
-                    if (user.verifyStaffID(staffID) == true){
+                    if (user.verifyStaffID(staffID)){
                         System.out.println("ID is valid.");
                         // Display menu
-                        user.displayMenu(staffID);
+                        user.displayMenu(); // changed to handle - own output and operations
                     } else {
-                        System.out.println("Invalid ID");
+                        System.out.println("Invalid ID. Please try again.");
                     };  
 
                     break;
@@ -49,12 +54,13 @@ public class APMSApp {
                     continueLoop = false; // Change continueLoop to false if user wants to exit
                     break;
                 default:
-                    System.out.println("Invalid Option. Please try again");
+                    // System.out.println("Invalid Option. Please try again");
+                    System.out.println("Back to main menu");
                     break;
 
             }
         } catch (NumberFormatException e) { 
-            System.out.println("Invalid Inout. Please enter a number.");   //
+            System.out.println("Invalid Input. Please enter a number.");   //
         }
     } while (continueLoop);
 

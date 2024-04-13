@@ -4,7 +4,7 @@ public class User {
     private String userID;
     private String name;
     private String role;    // student, staff, visitor
-    private int choice;
+    private Scanner input;  // created private scanner object for use in methods
 
     private static final String[] STAFF_IDS = {"STAFF001", "STAFF002", "STAFF003", "STAFF004","STAFF005", "STAFF006", "STAFF007", "STAFF008",
     "STAFF009", "STAFF010", "STAFF011", "STAFF012","STAFF013", "STAFF014", "STAFF015", "STAFF016","STAFF017", "STAFF018", "STAFF019", "STAFF020",
@@ -20,17 +20,8 @@ public class User {
     public User(String userID, String role) {
         this.userID = userID;
         this.role = role;
+        this.input = new Scanner(System.in);    // initializing the scanner to take inputs from users
     }
-
-    // // Constructor for staff
-    // public User(String staffID, boolean true){
-    //     this.userID = staffID;
-    // }
-
-    // // Constructor for student
-    // public User(String studentID, boolean true){
-    //     this.userID = studentID;
-    // }
 
     // Getters
     public String getuserID() {
@@ -96,12 +87,49 @@ public class User {
     }
 
     // new display menu
-    public void displayMenu(String userID){
+    public void displayMenu(){
+        int choice;
+        boolean continueMenu = true;
         System.out.println("1) Book Parking Spot");
         System.out.println("2) View Available Parking Spots");
         System.out.println("3) Cancel Booking");
         System.out.println("4) Report Violations");
         System.out.println("5) Go Back");
+        while (continueMenu) {
+            
+
+            System.out.println("Your Choice: ");
+            try{
+                choice = Integer.parseInt(input.nextLine());
+                switch (choice) {
+                    case 1:
+                        System.out.println("Book Parking Spot");
+                        // a method like bookspot() or something comes here from the parking spot class
+                        
+                        break;
+                    case 2:
+                        // viewAvailableSpots();
+                        break;
+                    case 3:
+                        System.out.println("Cancel..");
+                        break;
+                    case 4:
+                        System.out.println("Report...");
+                        // reportViolation();
+                        break;
+                    case 5:
+                        continueMenu = false;
+                        System.out.println("Returning back to main menu...");
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                        break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
+
     }
 
 
