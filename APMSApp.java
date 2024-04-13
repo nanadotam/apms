@@ -8,15 +8,15 @@ public class APMSApp {
         boolean continueLoop = true;
 
     
-    // call the actual class here
+    // Display menu
+    System.out.println("Welcome to the Ashesi Parking System.");
+    System.out.println("1) Staff");
+    System.out.println("2) Student");
+    System.out.println("3) Visitor");
+    System.out.println("4) Exit");
 
-    // do while loop here to make sure user inputs valid data type (integer
+    // do while loop here to make sure user inputs are valid
     do {
-        System.out.println("Welcome to the Ashesi Parking System.");
-        System.out.println("1) Staff");
-        System.out.println("2) Student");
-        System.out.println("3) Visitor");
-        System.out.println("4) Exit");
         System.out.print("\nYour input: ");
 
 
