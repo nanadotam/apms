@@ -103,10 +103,18 @@ public class User {
                 choice = Integer.parseInt(input.nextLine());
                 switch (choice) {
                     case 1:
-                        System.out.println("Book Parking Spot");
-                        // a method like bookspot() or something comes here from the parking spot class
-                        
+                        System.out.println("Book Parking Spot Menu");
+                        System.out.println("_" * 35);
+                        System.out.println("Enter Parking SPot ID:");
+                        String spotID = input.nextLine();
+                        if (Booking.bookSpot(spotID)) {
+                            System.out.println("Spot Booked Successfully.");
+                        } else {
+                            System.out.println("Spot occupied. Please choose another one.");
+                        }
                         break;
+                        
+    
                     case 2:
                         // viewAvailableSpots();
                         break;
@@ -115,7 +123,7 @@ public class User {
                         break;
                     case 4:
                         System.out.println("Report...");
-                        // reportViolation();
+                        // reportViolation();   
                         break;
                     case 5:
                         continueMenu = false;

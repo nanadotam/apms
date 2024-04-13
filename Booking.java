@@ -42,6 +42,28 @@ public class Booking {
                                                             "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", 
                                                             "8pm", "9pm", "10pm", "11pm"};
 
+    //implementing a booking method (new)
+    public Booking() {
+        // constructor
+        this.parkingForTheDay = new ParkingSpot[50];    // limiting the parking spots to 50 to test | to be changhed to actual values later
+        
+        // using a for each loop for efficiency
+
+        // spot initializer for multipurpose car park
+        int i = 0;
+        for (String spot : multiPurposeCarpark) {
+            parkingForTheDay[i++] = new ParkingSpot(spot, "Multi-Purpose Building", false, "General");
+        }
+
+    // bookSpot method
+    public boolean bookSpot (String spotID){
+        for (ParkingSpot spot : parkingForTheDay) {
+            if (spot.getspotID().equals(spotID) && !spot.getIsOccupied()) {
+                return spot.book();
+            }
+        }
+        return false;
+    }
 
     public static boolean reserveParkingSpot(String spotId, String time) {
         // Dummy implementation for reservation - logic here
@@ -60,6 +82,7 @@ public class Booking {
             System.out.print(time + " ");
         }
         System.out.println();
+    }
     }
 }
 
