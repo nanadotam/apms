@@ -1,29 +1,31 @@
 import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Reporting{
-    //Constructor
-    public Reporting(){}
+public class Reporting {
+    // Constructor
+    public Reporting() {}
 
-    public void reportViolation(String description, String userId, int numberPlate){
-        Scanner reportIssue = new Scanner(System.in);
-        System.out.println("Enter violation description: ");
-        System.out.println("Enter user ID: ");
-        System.out.println("Enter the user's number plate: ");
-        String userInput = reportIssue.nextLine();
-
-
+    public void reportViolation(String description, String userId, String numberPlate) {
+        try (Scanner reportIssue = new Scanner(System.in)) {
+            System.out.println("Enter violation description: ");
+            description = reportIssue.nextLine();
+            System.out.println("Enter user ID: ");
+            userId = reportIssue.nextLine();
+            System.out.println("Enter the user's number plate: ");
+            numberPlate = reportIssue.nextLine();
+        }
     }
 
-    public int userFines(int userId, int numberPlate){
+    public int userFines(int userId, String numberPlate) {
+        // Placeholder for fine calculation logic
         return 0;
     }
 
-    public void reportMaintenanceIssue(String location){}
+    public void reportMaintenanceIssue(String location) {
+        // Placeholder for reporting maintenance issues
+    }
 
-    public Report[] viewReportsByDate(Date date){
-        return new Report[i]
+    public void viewReportsByDate(Date date) {
+        // Placeholder for viewing reports by date
     }
 }

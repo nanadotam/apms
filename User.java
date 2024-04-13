@@ -1,42 +1,164 @@
-public class User {
-    private String userId;
-    private String name;
-    private String role;    // student, staff, visitors
+import java.util.Scanner;
 
-    User(String userId, String name, String role){
-        this.userId = userId;
-        this.name  = name;
+public class User {
+    private String userID;
+    private String name;
+    private String role;    // student, staff, visitor
+    private int choice;
+
+    private static final String[] STAFF_IDS = {"STAFF001", "STAFF002", "STAFF003", "STAFF004","STAFF005", "STAFF006", "STAFF007", "STAFF008",
+    "STAFF009", "STAFF010", "STAFF011", "STAFF012","STAFF013", "STAFF014", "STAFF015", "STAFF016","STAFF017", "STAFF018", "STAFF019", "STAFF020",
+    "STAFF021", "STAFF022", "STAFF023", "STAFF024","STAFF025", "STAFF026", "STAFF027", "STAFF028", "STAFF029", "STAFF030"};
+
+
+    private static final String[] STUDENT_IDS = {"STU00012024", "STU00022025", "STU00032026", "STU00042027","STU00052024", "STU00062025", "STU00072026", "STU00082027","STU00092024", "STU00102025", "STU00112026", "STU00122027",
+    "STU00132024", "STU00142025", "STU00152026", "STU00162027","STU00172024", "STU00182025", "STU00192026", "STU00202027","STU00212024", "STU00222025", "STU00232026", "STU00242027",
+    "STU00252024", "STU00262025", "STU00272026", "STU00282027","STU00292024", "STU00302025" };
+
+
+    // Constructor
+    public User(String userID, String role) {
+        this.userID = userID;
         this.role = role;
     }
 
+    // // Constructor for staff
+    // public User(String staffID, boolean true){
+    //     this.userID = staffID;
+    // }
+
+    // // Constructor for student
+    // public User(String studentID, boolean true){
+    //     this.userID = studentID;
+    // }
+
     // Getters
-    public String getUserId(){
-        return userId;
+    public String getuserID() {
+        return userID;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getRole(){
+    public String getRole() {
         return role;
     }
-    
+
     // Setters
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setuserID(String userID) {
+        this.userID = userID;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
-    
-    public void setRole(String role){
+
+    public void setRole(String role) {
         this.role = role;
     }
+    
 
-    System.out.println("Elsie commit");
+    // Verify Staff ID
+    public void verifyStaffID(String staffID){
+        staffID = staffID.toUpperCase();
+        // Check if the ID starts with "STAFF"
+        if (staffID.startsWith("STAFF")) {
+            // Check if the uppercase ID exists in the array of valid IDs
+            if (contains(STAFF_IDS, staffID)) {
+                System.out.println("ID is valid.");
+            } else {
+                System.out.println("ID is not recognized.");
+            }
+        } else {
+            System.out.println("Incorrect ID format.");
+        }
+    }
 
+    // Verify Student ID
+    public void verifyStudentID(String studentID){
+        studentID = studentID.toUpperCase();
+        // Check if the ID starts with "STAFF"
+        if (studentID.startsWith("STAFF")) {
+            // Check if the uppercase ID exists in the array of valid IDs
+            if (contains(STAFF_IDS, studentID)) {
+                System.out.println("ID is valid.");
+            } else {
+                System.out.println("ID is not recognized.");
+            }
+        } else {
+            System.out.println("Incorrect ID format.");
+        }
+    }
+
+    // Boolean we created to check if an array exists in a list
+    private boolean contains(String[] array, String key) {
+        for (String element : array) {
+            if (element.equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // new display menu
+    public void displayMenu(String userID){
+        System.out.println("1) Book Parking Spot");
+        System.out.println("2) View Available Parking Spots");
+        System.out.println("3) Cancel Booking");
+        System.out.println("4) Report Violations");
+        System.out.println("5) Go Back");
+    }
+
+
+
+    // // TO BE DELETED
+
+    // // Display menu for staff
+    // public void displayMenu(boolean staffID) {
+    //     Scanner input = new Scanner(System.in);
+
+    //     do {
+    //         System.out.println("\nMenu for " + role + ": " + name);
+    //         switch (role.toLowerCase()) {
+    //             case "staff":
+    //                 System.out.println("1. View Parking Details");
+    //                 System.out.println("2. Update Parking Details");
+    //                 System.out.println("3. Exit");
+    //                 break;
+    //             case "student":
+    //                 System.out.println("1. Check Permit Status");
+    //                 System.out.println("2. Apply for Permit");
+    //                 System.out.println("3. Exit");
+    //                 break;
+    //             case "visitor":
+    //                 System.out.println("1. Register Vehicle");
+    //                 System.out.println("2. Pay for Parking");
+    //                 System.out.println("3. Exit");
+    //                 break;
+    //         }
+    //         System.out.print("Enter your choice: ");
+
+    //         try {
+    //             choice = Integer.parseInt(input.nextLine());
+
+    //             if (choice == 3) {
+    //                 System.out.println("Exiting...");
+    //                 break;
+    //             } else {
+    //                 performAction(choice);
+    //             }
+    //         } catch (NumberFormatException e) {
+    //             System.out.println("Invalid input! Please enter a number only.");
+    //         }
+    //     } while (true);
+    // }
+
+    // Perform actions based on the choice
+    private void performAction(int choice) {
+        System.out.println("Performing action for choice " + choice + " for a " + role);
+        // Implement specific actions based on role and choice here
+    
+    input.close();
 }
-
-
+}

@@ -1,24 +1,21 @@
-// public class Main{
-//     public static main void(String []args){
-//         ParkingPermit p = new ParkingPermit("GW122", "73482028", LocalDate validFrom, LocalDate validUntil, String permitType)
-//     }
-// }
-
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Example of creating and using a Vehicle
-        Vehicle vehicle = new Vehicle("ABC123", false);
-        System.out.println("Vehicle License Plate: " + vehicle.getLicensePlate());
+        Scanner scanner = new Scanner(System.in);
+        Booking.displayAvailableSpots();  // Display available spots and times
 
-        // Example of creating a User
-        User user = new User("userID123", "John Doe", "staff");
-        System.out.println("User Role: " + user.getRole());
+        System.out.println("Enter the parking spot ID from the list above:");
+        String spotId = scanner.nextLine();
+        System.out.println("Enter the time you want to reserve:");
+        String time = scanner.nextLine();
 
-        // Example of managing a parking spot
-        ParkingSpot spot = new ParkingSpot("spotID1", "near entrance", false, "general");
-        System.out.println("Parking Spot Type: " + spot.getType());
+        if (Booking.reserveParkingSpot(spotId, time)) {
+            System.out.println("Parking reserved successfully!");
+        } else {
+            System.out.println("Failed to reserve parking. Please try again.");
+        }
 
-        // Assume more complex interactions and integrations here
+        scanner.close();
     }
 }

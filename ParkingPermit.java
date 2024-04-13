@@ -37,34 +37,26 @@ public class ParkingPermit {
         return permitType;
     }
 
-    
-
     // Setters
-    public void setPermitId() {
+    public void setPermitId(String permitId) {
         this.permitId = permitId;
     }
-
 
     public boolean isValidOn(LocalDate date) {
         return (date.isEqual(validFrom) || date.isAfter(validFrom)) && (date.isBefore(validUntil) || date.isEqual(validUntil));
     }
 
     public String formatPermitId(String permitId) {
-        if (permitId.contains("-") || permitId.contains(" ")) {
-            // Corrected code
-            permitId = permitId.replaceAll("[-\\s]+", ""); // This removes all hyphens and spaces
-            return permitId;
-        }
-        
-    public boolean checkPermitId(String permitId) {
-        if (permitId.startsWith("STU")){
-            return true;
-        }else{
-            System.out.println("Invalid Students ID");
-            break;
-        }
+        permitId = permitId.replaceAll("[-\\s]+", ""); // This removes all hyphens and spaces
+        return permitId;
     }
 
-
-
+    public boolean checkPermitId(String permitId) {
+        if (permitId.startsWith("STU")) {
+            return true;
+        } else {
+            System.out.println("Invalid Students ID");
+            return false;
+        }
+    }
 }
