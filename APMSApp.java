@@ -5,7 +5,7 @@ public class APMSApp {
         Scanner scanner = new Scanner(System.in);
         // initialize variables
         int user_choice;
-        boolean continueLoop = false;
+        boolean continueLoop = true;
 
     
     // call the actual class here
@@ -24,20 +24,29 @@ public class APMSApp {
         try {
             // this line selects the integer from the options the user enters
             user_choice = Integer.parseInt(scanner.nextLine());
-            if (user_choice == 4) {
-                System.out.println("Thank you for using the Ashesi Parking system.");
-                continueLoop = false;
-                break; // Exit the loop and end the program
-            }
+            // if (user_choice == 4) {
+            //     System.out.println("Thank you for using the Ashesi Parking system.");
+            //     continueLoop = false;
+            //     break; // Exit the loop and end the program
+            // }
 
             switch (user_choice) {
                 case 1:
                     System.out.println("Enter your Staff ID: ");
                     String staffID = scanner.nextLine();
                     User user = new User(staffID, "staff");
-                    user.verifyStaffID(staffID);    // Verify staff ID
-                    // Display menu
-                    user.displayMenu(staffID);
+                    if (user.verifyStaffID(staffID) == true){
+                        System.out.println("ID is valid.");
+                        // Display menu
+                        user.displayMenu(staffID);
+                    } else {
+                        System.out.println("Invalid ID");
+                    };  
+
+                    break;
+                case 4:
+                    System.out.println("Thank you for using the Ashesi Parking system.");
+                    continueLoop = false; // Change continueLoop to false if user wants to exit
                     break;
                 default:
                     System.out.println("Invalid Option. Please try again");

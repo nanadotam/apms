@@ -60,38 +60,32 @@ public class User {
     
 
     // Verify Staff ID
-    public void verifyStaffID(String staffID){
+    public boolean verifyStaffID(String staffID) {
         staffID = staffID.toUpperCase();
         // Check if the ID starts with "STAFF"
         if (staffID.startsWith("STAFF")) {
             // Check if the uppercase ID exists in the array of valid IDs
-            if (contains(STAFF_IDS, staffID)) {
-                System.out.println("ID is valid.");
-            } else {
-                System.out.println("ID is not recognized.");
-            }
+            return contains(STAFF_IDS, staffID);
         } else {
-            System.out.println("Incorrect ID format.");
+            return false; // Incorrect ID format
         }
     }
 
     // Verify Student ID
-    public void verifyStudentID(String studentID){
+    public boolean verifyStudentID(String studentID) {
         studentID = studentID.toUpperCase();
-        // Check if the ID starts with "STAFF"
-        if (studentID.startsWith("STAFF")) {
+        // Check if the ID starts with "STU"
+        if (studentID.startsWith("STU")) {
             // Check if the uppercase ID exists in the array of valid IDs
-            if (contains(STAFF_IDS, studentID)) {
-                System.out.println("ID is valid.");
-            } else {
-                System.out.println("ID is not recognized.");
-            }
+            return contains(STUDENT_IDS, studentID);
         } else {
-            System.out.println("Incorrect ID format.");
+            return false; // Incorrect ID format
         }
     }
 
-    // Boolean we created to check if an array exists in a list
+
+    // helper method
+    // Boolean we created to check if an array exists in a list 
     private boolean contains(String[] array, String key) {
         for (String element : array) {
             if (element.equals(key)) {
