@@ -1,3 +1,5 @@
+// update booking class
+
 public class Booking {
     private ParkingSpot[] parkingForTheDay;  // Assuming 'Parking' class exists, otherwise this will cause an error.
 
