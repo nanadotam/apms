@@ -5,7 +5,7 @@ public class Test {
         System.out.println("Vehicle License Plate: " + vehicle.getLicensePlate());
 
         // Example of creating a User
-        User user = new User("userID123", "John Doe", "staff");
+        User user = new User("userID123", "John Doe");
         System.out.println("User Role: " + user.getRole());
 
         // Example of managing a parking spot

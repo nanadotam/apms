@@ -109,7 +109,14 @@ public class Booking {
         }
         System.out.println();
     }
+    
 
+    /**
+     * Cancels the booking for a parking spot by its ID.
+     * @param spotId The ID of the parking spot to cancel.
+     * @return true if the booking was successfully cancelled, false if the spot was not found or already unoccupied.
+     */
+    
 
     }
 }
