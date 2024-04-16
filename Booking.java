@@ -1,7 +1,8 @@
 // update booking class
+import java.util.ArrayList; // Import the ArrayList class
 
 public class Booking {
-    private ParkingSpot[] parkingForTheDay;  // Assuming 'Parking' class exists, otherwise this will cause an error.
+    private static ParkingSpot[] parkingForTheDay;  // Assuming 'Parking' class exists, otherwise this will cause an error.
 
     public static final String[] multiPurposeCarpark = {"MPC 01", "MPC 02", "MPC 03", "MPC 04", "MPC 05", 
                                                         "MPC 06", "MPC 07", "MPC 08", "MPC 09", "MPC 10"};
@@ -44,70 +45,83 @@ public class Booking {
                                                             "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", 
                                                             "8pm", "9pm", "10pm", "11pm"};
 
+
+    public static final String[] locations = {"Multi-Purpose Building", "Administration Building", "Students Carpark", "Upper Hostels Carpark", "Lower Hostels Carpark"};
+    public static int loopcounter = 0;
+
     //implementing a booking method (new)
     public Booking() {
         // constructor
-        this.parkingForTheDay = new ParkingSpot[50];    // limiting the parking spots to 50 to test | to be changhed to actual values later
+        this.parkingForTheDay = new ParkingSpot[200];    // limiting the parking spots to 50 to test | to be changhed to actual values later
         
         // using a for each loop for efficiency
 
         // spot initializer for multipurpose car park
-        int i = 0;
+        //int i = 0;
         for (String spot : multiPurposeCarpark) {
-            parkingForTheDay[i++] = new ParkingSpot(spot, "Multi-Purpose Building", false, "General");
+            parkingForTheDay[loopcounter++] = new ParkingSpot(spot, "Multi-Purpose Building", false, "General");
         }
 
-        int i = 0;
+    
         for (String spot : mainAdministrationCarpark) {
-            parkingForTheDay[i++] = new ParkingSpot(spot, "Administration Building", false, "General");
+            parkingForTheDay[loopcounter++] = new ParkingSpot(spot, "Administration Building", false, "General");
         }
 
         for (String spot : mainStudentsCarpark) {
-            parkingForTheDay[i++] = new ParkingSpot(spot, "Students Carpark", false, "General");
+            parkingForTheDay[loopcounter++] = new ParkingSpot(spot, "Students Carpark", false, "General");
         }
 
         for (String spot :upperHostelsCarpark) {
-            parkingForTheDay[i++] = new ParkingSpot(spot, "Upper Hostels Carpark", false, "General");
+            parkingForTheDay[loopcounter++] = new ParkingSpot(spot, "Upper Hostels Carpark", false, "General");
         }
 
         for (String spot : lowerHostelsCarpark) {
-            parkingForTheDay[i++] = new ParkingSpot(spot, "Lower Hostels Carpark", false, "General");
+            parkingForTheDay[loopcounter++] = new ParkingSpot(spot, "Lower Hostels Carpark", false, "General");
         }
 
+        // 1. choose from the locations
+        // 2 choose the location they want
+        // loop through parking for the day
+        // print out all parking  spots in that chosen location that are availablie (isoccupied = false)
  
                 
-
+    }
         // @ Elsie
         // repeat method for all 5 car parks
 
     // bookSpot method
-    public boolean bookSpot (String spotId){
-        for (ParkingSpot spot : parkingForTheDay) {
-            if (spot.getspotId().equals(spotId) && !spot.getIsOccupied()) {
-                return spot.book();
+    // Update bookSpot method
+    public static boolean bookSpot(String spotId) {
+        // System.out.println("parking spot: "+ spotId);
+        //System.out.println(parkingForTheDay.toString());
+        for (int i = 0; i < loopcounter; i++) {
+            // System.out.println(parkingForTheDay[i].getSpotId());
+            if (parkingForTheDay[i] != null && parkingForTheDay[i].getSpotId().equals(spotId) && !parkingForTheDay[i].getIsOccupied()) {
+                System.out.println("parking spot found");
+                return parkingForTheDay[i].book();
             }
         }
         return false;
     }
 
-    public static boolean reserveParkingSpot(String spotId, String time) {
-        // Dummy implementation for reservation - logic here
-        // In a real scenario, check if the spotId and time are available, then reserve them
-        System.out.println("Reserved " + spotId + " at " + time);
-        return true; // Assuming reservation is always successful for this example
-    }
+
+    // public static boolean reserveParkingSpot(String spotId, String time) {
+    //     // Dummy implementation for reservation - logic here
+    //     // In a real scenario, check if the spotId and time are available, then reserve them
+    //     System.out.println("Reserved " + spotId + " at " + time);
+    //     return true; // Assuming reservation is always successful for this example
+    // }
 
     // display available parking spots
-    public static void displayAvailableSpots() {
-        System.out.println("Available parking spots:");
-        for (String spot : multiPurposeCarpark) {
-            System.out.print(spot + " ");
+    public static ArrayList<String>  displayAvailableSpots(String location) {
+        ArrayList<String> available = new ArrayList<String>();
+        for (int i = 0; i < loopcounter; i++) {
+            // System.out.println(parkingForTheDay[i].getSpotId());
+            if (parkingForTheDay[i] != null && parkingForTheDay[i].getLocation().equals(location) && !parkingForTheDay[i].getIsOccupied()) {
+                available.add(parkingForTheDay[i].getSpotId());
+            }
         }
-        System.out.println("\nAvailable times:");
-        for (String time : multiPurposeCarparkTime) {
-            System.out.print(time + " ");
-        }
-        System.out.println();
+        return available;
     }
     
 
@@ -119,5 +133,5 @@ public class Booking {
     
 
     }
-}
+
 

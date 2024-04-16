@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class APMSApp {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        Booking booking = new Booking();
         // initialize variables
         int user_choice;
         boolean continueLoop = true;
@@ -42,7 +43,7 @@ public class APMSApp {
                     } else {
                         System.out.println("Invalid ID. Please try again.");
                     }; 
-
+                    break;
                 case 2:
                     System.out.println("Enter your Student ID: ");
                     String studentID = scanner.nextLine();

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
@@ -120,6 +121,7 @@ public class User {
                         System.out.println("_".repeat(10));
                         System.out.println("Enter Parking Spot ID:");
                         String spotID = input.nextLine();
+                        
                         if (Booking.bookSpot(spotID)) {
                             System.out.println("Spot Booked Successfully.");
                         } else {
@@ -132,7 +134,17 @@ public class User {
                         // viewAvailableSpots();
                         System.out.println("View Available Parking Spots Menu");
                         System.out.println("_".repeat(10));
+                        System.out.println("Menu: Choose car park: \n ");
+                        for (int i = 0; i<Booking.locations.length;i++){
+                            System.out.print(i + ". "+ Booking.locations[i]+ "\n");
+                        }
+                        String location = input.nextLine();
+                        System.out.println("chosen location "+ location);
                         
+                        ArrayList<String> spaces_available = Booking.displayAvailableSpots(location);
+                        for(String space : spaces_available){
+                            System.out.println("THIS SPACE IS : "+ space + "\n");
+                        }
 
                         break;
                     case 3:

@@ -67,5 +67,5 @@ public class ParkingSpot implements Bookable{
 }
 
 //FUNCTION TO DISPLAY THE PROPERTIES OF THE PARKING SPOT I.E. LOCATION, SPOT ID ETC. 
-public static String displaySpotDetails{}
+// public static String displaySpotDetails{}
 
